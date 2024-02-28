@@ -15,5 +15,19 @@ PatientService patientService=new PatientService();
         String ans=patientService.addPatientToDb(patient);
         return ans;
     }
+
+    @GetMapping("/findOldestPatient")
+    public  Patient findOldestPatient(){
+        Patient ans=patientService.findOldestPatient();
+        return  ans;
+    }
+
+    @GetMapping("/viewPatient/{patientId}/")
+
+    public  Patient viewPatient(@PathVariable("patientId") Integer patientId){
+        Patient patient=patientService.getPatientInfo(patientId);
+        return  patient;
+    }
+
     }
 
