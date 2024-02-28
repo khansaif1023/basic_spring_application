@@ -42,7 +42,24 @@ public class ApiClass {
         Patient patient=patientDb.get(key);
         return  patient;
    }
+@GetMapping("/viewPatient/{patientId}/")
+public Patient viewPatient(@PathVariable("patientId") Integer patientId){
+     Patient patient=patientDb.get(patientId);
+     return  patient;
+}
+@GetMapping("/findOldestPatient")
+public Patient findOldestPatient(){
 
+        int patientId=-1;
+        int maxAge=0;
+        for(Patient patient:patientDb.values()){
+            if(patient.getAge()>maxAge){
+                patientId=patient.getPatientID();
+                maxAge=patient.getAge();
+            }
+        }
+        return  patientDb.get(patientId);
+}
 
     @GetMapping("/sum")
 
