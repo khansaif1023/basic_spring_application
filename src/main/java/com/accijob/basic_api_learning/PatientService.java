@@ -1,5 +1,6 @@
 package com.accijob.basic_api_learning;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -7,7 +8,9 @@ import java.util.List;
 @Service
 public class PatientService {
 
-    PatientRepository patientRepository=new PatientRepository();
+    //PatientRepository patientRepository=new PatientRepository();
+    @Autowired
+    private PatientRepository patientRepository;
 
     public String addPatientToDb(Patient patient){
         //some computution incase is reqired
